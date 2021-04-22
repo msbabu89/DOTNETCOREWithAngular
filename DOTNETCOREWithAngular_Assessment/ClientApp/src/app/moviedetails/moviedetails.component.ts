@@ -22,14 +22,11 @@ export class MovieDetailsComponent {
     }, error => console.error(error));
 
     this.sub = this.route.params.subscribe(params => {
-      this.imdbID = params['imdbID']; // (+) converts string 'id' to a number
-      // In a real app: dispatch action to load the details here.
+      this.imdbID = params['imdbID'];
     });
   }
 
-  BackButtonClicked() {
-    this.route.navigate('/')
-  }
+ 
 
 }
 
