@@ -28,6 +28,13 @@ export class MovieComponent {
         this.movies = this.movies.filter(x => x.location == e.target.value);
       else if (e != undefined && filter == 'language')
         this.movies = this.movies.filter(x => x.language == e.target.value);
+
+      let booked = sessionStorage.getItem('bookingkey');
+      let movie: any;
+      if (booked != undefined && booked != null) {
+        movie = this.movies.find(x => x.imdbID == booked);
+        movie.movieBooked = true;
+      }
     }, error => console.error(error));
   }
 
@@ -58,4 +65,5 @@ interface Movies {
   imdbID: string;
   listingType: string;
   imdbRating: string;
+  movieBooked: boolean;
 }

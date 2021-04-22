@@ -28,7 +28,13 @@ export class MovieDetailsComponent {
 
   BookTicket(imdbID) {
     this.movie = this.movies.find(x => x.imdbID == imdbID);
-    this.bookedMovies.push(this.movie);
+    let booked = sessionStorage.getItem('bookingkey');
+    if (booked != undefined && booked != null)
+      alert("Movie already booked");
+    else {
+      sessionStorage.setItem('bookingkey', imdbID);
+      alert("Movie has been booked successfully");
+    }
   }
 
 }

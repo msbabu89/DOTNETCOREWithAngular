@@ -29,7 +29,8 @@
   </thead>
   <tbody>
     <tr *ngFor="let movie of movies | appFilter : searchText" [routerLink]="['/moviedetails', movie.imdbID]">
-      <td>{{ movie.title }} </td>
+      <td *ngIf=movie.movieBooked style="background-color:aquamarine">{{ movie.title }}</td>
+      <td *ngIf=!movie.movieBooked>{{ movie.title }} </td>
       <td>{{ movie.language }}</td>
       <td>{{ movie.location }}</td>
       <td>{{ movie.imdbRating }}</td>
