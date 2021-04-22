@@ -27,6 +27,10 @@ export class MovieDetailsComponent {
     });
   }
 
+  BackButtonClicked() {
+    this.route.navigate('/')
+  }
+
 }
 
 interface Movies {

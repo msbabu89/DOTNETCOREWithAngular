@@ -1,7 +1,42 @@
-Movie Details!!!
+<div style="float:right">
+  <a routerLink="/">Back</a>
+</div>
+<div>
+  <table>
+    <tr>
+      <td>
+        <img style="height:300px; width:300px;" src="{{selectedMovie.poster}}">
+      </td>
+      <td>
+        {{selectedMovie.plot}}
+      </td>
+    </tr>
+  </table>
 
-{{selectedMovie.title}}
 
-{{selectedMovie.language}}
+</div>
 
-{{selectedMovie.location}}
+<font style="font:bolder">IMDB Rating:</font> {{selectedMovie.imdbRating}}
+<br />
+<font style="font:bold">Language:</font> {{selectedMovie.language}}
+<br />
+<font style="font:bold">Location:</font> {{selectedMovie.location}}
+<br />
+<div>
+</div>
+<div>
+  <img *ngFor="let still of selectedMovie.stills" style="height:200px; width:200px;" src="{{still}}">
+</div>
+
+<script type="text/template">
+  .btn {
+  border: none;
+  color: dodgerblue;
+  background - color: inherit;
+  padding: 14px 28px;
+  font - size: 16px;
+  cursor: pointer;
+  display: inline - block;
+  }
+</script>
+
