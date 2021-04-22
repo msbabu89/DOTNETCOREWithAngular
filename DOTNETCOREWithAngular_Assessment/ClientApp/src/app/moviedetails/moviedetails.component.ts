@@ -9,12 +9,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieDetailsComponent {
   public movies: Movies[];
-  private title: string;
+  public bookedMovies: Movies[] = new Array();
+  movie: Movies;
   imdbID: string;
   private sub: any;
   selectedMovie: Movies;
-  http: HttpClient;
-  BaseUrl: string;
+ 
   constructor(private route: ActivatedRoute, http: HttpClient, @Inject('BASE_URL',) baseUrl: string) {
     http.get<Movies[]>(baseUrl + 'movie').subscribe(result => {
       this.movies = result;
@@ -26,7 +26,10 @@ export class MovieDetailsComponent {
     });
   }
 
- 
+  BookTicket(imdbID) {
+    this.movie = this.movies.find(x => x.imdbID == imdbID);
+    this.bookedMovies.push(this.movie);
+  }
 
 }
 
